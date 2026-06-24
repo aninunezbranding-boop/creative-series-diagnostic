@@ -104,9 +104,10 @@ export default function App() {
     setError(""); setScreen("loading"); setLoadStep(0);
     const timer = setInterval(() => setLoadStep(p => Math.min(p+1, STEPS.length-1)), 1200);
     try {
-      const res = await fetch("https://api.anthropic.com/v1/messages", {
-        method:"POST", headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({ model:"claude-sonnet-4-6", max_tokens:4000, messages:[{role:"user",content:buildPrompt()}] })
+     const res = await fetch("/api/generate", {
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({ prompt: buildPrompt() })
       });
       clearInterval(timer);
       const data = await res.json();
