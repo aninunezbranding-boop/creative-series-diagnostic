@@ -1,0 +1,18 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+textarea:focus, input:focus {
+  border-color: #4A1535 !important;
+  box-shadow: 0 0 0 3px rgba(74,21,53,0.1);
+}
